@@ -10,8 +10,7 @@ const InputArea = ({data, addNewTodo, ...props}) => {
       const newToDo = {id : uuidv4(), text: newTodoText, done: false};
       addNewTodo(newToDo);
     }
-    let input = document.getElementById('inputId');
-    input.value = "";
+    setNewTodoText('')
   };
   const onKeyDown = (e) => {
     if(e.keyCode === 13) {
@@ -21,7 +20,7 @@ const InputArea = ({data, addNewTodo, ...props}) => {
 
   return (
     <div className='input-area'>
-      <input className='ant-input' id='inputId' onKeyDown={onKeyDown} placeholder="Write here what you want to do" onChange={e => {
+      <input className='ant-input' id='inputId' onKeyDown={onKeyDown} placeholder="Write here what you want to do" value={newTodoText} onChange={e => {
         setNewTodoText(e.target.value);
       }}></input>
       <button className='ant-btn-primary ant-btn' onClick={onFinish}>Add ToDo</button>

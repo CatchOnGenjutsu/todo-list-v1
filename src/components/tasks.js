@@ -1,10 +1,9 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Checkbox , Button } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { OmitProps } from 'antd/lib/transfer/ListBody';
 
 const Task = React.memo(function Task(props) {
-  console.log(`I'm rendering task ${props.data.id}`)
 	const [isEditing, setIsEditing] = useState(false);
 
   function handleInputChange(e) {
